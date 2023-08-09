@@ -1,0 +1,185 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    color: #333;
+}
+
+
+
+.menu_open {
+    display: none;
+}
+
+header {
+    height: 100px;
+    line-height: 100px;
+
+    position: fixed;
+    /* 스크롤 내려도 최상단에 고정 */
+    background-color: rgba(255, 255, 255, 0.74);
+    backdrop-filter: blur(7px);
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+header .inner {
+    max-width: 1280px;
+    width: 98%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+header .inner h1 {
+    font-family: 'Cafe24Ssurround';
+}
+
+header .inner nav ul li {
+    display: inline-block;
+    /* 가로나열 */
+    margin-left: 30px;
+}
+
+
+
+.main_visual {
+    height: 100vh;
+}
+
+.main_visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cont01 .list .item {
+    height: 600px;
+    display: flex;
+
+    align-items: center;
+    /* 글, 이미지 가로정렬 상태에서 
+    글, 이미지 서로 수직가운데 정렬 */
+}
+
+.cont01 .list .item img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cont01 .list .item div {
+    width: 50%;
+    padding: 50px;
+
+    box-sizing: border-box;
+    /* padding, border를 포함해서 설정값으로 적용 */
+}
+
+.cont01 .list .item div h4 {
+    font-size: 25px;
+    margin-bottom: 15px;
+
+    font-family: 'Cafe24Ssurround';
+}
+
+.cont01 .list .item div a {
+    border: 1px solid #000;
+
+    display: block;
+    margin-top: 30px;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 18px;
+    
+    font-family: 'Pretendard-Regular';
+}
+
+
+/* 두번째 .item 안에 있는 img를 div보다 뒤에 배치. order 값 적용 */
+.cont01 .list .item:nth-child(2) img {
+    order: 1;
+    /* 그림, 텍스트 좌우 위치 변경 */
+    /*  order : 앞뒤 순서 변경, 기본값 0
+    🔶부모에게 display: flex; 있을 때 사용🔶
+    한칸 앞으로 이동 */
+}
+
+
+
+
+/* 1024 태블릿 시작 사이즈 */
+@media screen and (max-width:1024px) {
+    header .inner nav {
+        display: none;
+    }
+
+    .menu_open {
+        display: block;
+        /* 화면크기 1024보다 작을때 헤더에 메뉴보기 보임 */
+    }
+}
+
+
+@media screen and (max-width:640px) {
+    header {
+        height: 70px;
+        line-height: 70px;
+    }
+
+    .cont01 .list .item {
+        display: block;
+        /* 이미지 글자 세로정렬 */
+        height: auto;
+        /* 이미지 영역만큼 글자 자동으로 보임 */
+    }
+
+    .cont01 .list .item img {
+        width: 100%;
+        /* 가로 넓어짐 */
+
+        height: 400px;
+    }
+
+    .cont01 .list .item div {
+        width: 100%;
+        /* 가로 넓어짐 */
+
+        padding: 20px;
+        /* 글자 상하좌우 여백 줄이기 */
+    }
+}
